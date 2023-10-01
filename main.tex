@@ -107,31 +107,52 @@ columns=fullflexible
 \author{EE22BTECH11049 - Shivansh Kirar}
 \maketitle
 \textbf{Question EC 31 2023}\\
-The signal to noise ratio (SNR) of an ADC with full scale sinusoidal input is given to be 61.96 dB. The resolution of ADC is  \\
-\solution 
+The signal-to-noise ratio (SNR) of an ADC with a full-scale sinusoidal input is given to be 61.96 dB. The resolution of the ADC is \hfill{GATE EC 2023}
+
+
+\textbf{Solution:}
+The mean power in a sinusoidal input signal with unit amplitude is simply
 \begin{equation}
-\text{Resolution (in bits)} = \frac{\text{SNR (dB)} - 1.76 \text{ dB}}{6.02 \text{ dB}}
+P_s = \frac{1}{N} \int_{0}^{T} \sin^2(\omega t) \, dt
+\end{equation}
+
+Quantized to $2^n$ discrete levels, equivalent to $n$ bits, one quantization step $q$ has a size of
+\begin{equation}
+\left| e \right| \leq \frac{q}{2} \text{ and therefore, } \left| e \right| \leq 2^{-n}
+\end{equation}
+
+For a large enough number of quantization steps, the probability density function of the quantization error tends toward being flat 1. Its value within the quantization error bounds is
+\begin{equation}
+p_e \approx \frac{1}{q}
+\end{equation}
+
+So, we can calculate its mean power or variance as the 2nd moment of its distribution:
+\begin{equation}
+P_e = \int_{-\frac{q}{2}}^{\frac{q}{2}} p(e) e^{2} \, de \approx \frac{2^{-2n}}{3}
+\end{equation}
+
+Thus, an ideal ADC would have a signal-to-noise ratio
+\begin{equation}
+SNR = \frac{P_s}{P_e} = 1.5 \cdot 2^{2n}
+\end{equation}
+
+or, expressed in decibels,
+\begin{equation}
+SNR = 1.76 + 6.02n
 \end{equation}
 
 In this formula:
 
 \begin{itemize}
-  \item $SNR$ is the signal-to-noise ratio in dB, which is given as $61.96$ dB in your case.
+  \item $SNR$ is the signal-to-noise ratio in dB, which is given as $61.96$ dB in our case.
   \item $1.76$ dB is a constant that accounts for quantization noise.
   \item $6.02$ dB is the noise bandwidth factor for a sinusoidal input.
 \end{itemize}
 
 Plug in the values:
-
 \begin{equation}
-\text{Resolution (in bits)} = \frac{61.96 \text{ dB} - 1.76 \text{ dB}}{6.02 \text{ dB}}
+\text{Resolution (in bits)} = \frac{61.96 \text{ dB} - 1.76 \text{ dB}}{6.02 \text{ dB}} \approx 10 \text{ bits}
 \end{equation}
 
-\begin{equation}
-\text{Resolution (in bits)} = 10 \text{ bits}
-\end{equation}
-
-So, the resolution of ADC is $10$ bits.
-
+So, the resolution of the ADC is approximately 10 bits.
 \end{document}
-
