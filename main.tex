@@ -110,33 +110,82 @@ columns=fullflexible
 The signal-to-noise ratio (SNR) of an ADC with a full-scale sinusoidal input is given to be 61.96 dB. The resolution of the ADC is \hfill{GATE EC 2023}
 
 \textbf{Solution:}
+\begin{table}[H]
+\input{Table/a.tex}
+\label{table:Gate.31.2023.0}
+\end{table}
 \begin{figure}[H]
   \centering
   \includegraphics[width=1\textwidth]{Graph/a.png}
   \caption{Quantization of Sinusoidal Signal}
-  \label{fig:Gate.31.2023}
+  \label{fig:Gate.31.2023.1}
 \end{figure}
-The mean power in a sinusoidal input signal with unit amplitude is simply
-\begin{equation}
-P_s = \frac{1}{T} \int_{0}^{T} \sin^2(\omega t) \, dt
-\end{equation}
- where \(T\) is the time period of the signal, and \(\omega\) is the angular frequency.
 
+The power of a continuous-time signal is defined as the average value of the square of the signal over a certain time interval. For a sinusoidal signal \(x(t) = A \sin(2\pi f t + \phi)\), the power (\(P_s\)) is calculated as:
+
+\begin{equation}
+P_s = \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} |x(t)|^2 dt
+\end{equation}
+
+where \(\phi\) is the phase of the signal.
+
+\begin{equation}
+P_s = \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} |A \sin(2\pi f t + \phi)|^2 dt
+\end{equation}
+
+\begin{equation}
+P_s = \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} A^2 \sin^2(2\pi f t + \phi) dt
+\end{equation}
+
+\begin{equation}
+P_s = \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} A^2 \cdot \frac{1 - \cos(4\pi f t + 2\phi)}{2} dt
+\end{equation}
+
+\begin{equation}
+P_s = \frac{1}{2} \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} A^2 dt - \frac{1}{2} \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} A^2 \cos(4\pi f t + 2\phi) dt
+\end{equation}
+
+\begin{equation}
+P_s = \frac{1}{2} \cdot A^2 - 0
+\end{equation}
+
+\begin{equation}
+P_s = \frac{A^2}{2}
+\end{equation}
+
+Here, \(A = 1\), so:
+
+\begin{equation}
+P_s = \frac{1}{2}
+\end{equation}
 
 Quantized to $2^n$ discrete levels, equivalent to $n$ bits, one quantization step $q$ has a size of
 \begin{equation}
 q = \frac{2}{2^{n}} = 2^{-(n-1)}
 \end{equation}
+
 We know,quantization error has a maximum value of plus or minus half the
 step size, so 
 \begin{equation}
 \left| e \right| \leq \frac{q}{2} \text{ and therefore, } \left| e \right| \leq 2^{-n}
 \end{equation}
 
-For a large enough number of quantization steps, the probability density function of the quantization error tends toward being flat 1. Its value within the quantization error bounds is
+For a large enough number of quantization steps, the probability density function of the quantization error tends toward being flat 1.
+Pdf of error (e) of quantization is defined as 
+
 \begin{equation}
-p_e \approx \frac{1}{q}
+P_e(X) = 
+\begin{cases}
+    \frac{1}{q}, & \text{if } -\frac{q}{2} < X < \frac{q}{2} \\
+    0, & \text{otherwise}
+\end{cases}
 \end{equation}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{Graph/b.png}
+  \caption{plot of pdf of Quantization Error}
+  \label{fig:Gate.31.2023.2}
+\end{figure}
 
 So, we can calculate its mean power or variance as the 2nd moment of its distribution.\\
 Since, the distribution of error is uniform hence E[e]=0.
@@ -152,11 +201,11 @@ On putting \(q = 2^{-(n-1)}\), we have:
 E[e^{2}] \approx \frac{2^{-2n}}{3}
 \end{equation}
 \begin{equation}
-P_e \approx \frac{2^{-2n}}{3}
+Pe \approx \frac{2^{-2n}}{3}
 \end{equation}
 Thus, an ideal ADC would have a signal-to-noise ratio
 \begin{equation}
-SNR = \frac{P_s}{P_e} = 1.5 \cdot 2^{2n}
+SNR = \frac{Ps}{Pe} = 1.5 \cdot 2^{2n}
 \end{equation}
 
 or, expressed in decibels,

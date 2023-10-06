@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.8.7)  3 OCT 2023 23:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.8.7)  6 OCT 2023 22:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1369,53 +1369,67 @@ Package hyperref Info: Link coloring OFF on input line 59.
 \c@lemma=\count362
 \c@example=\count363
 \c@rem=\count364
-<Graph/a.png, id=7, 731.3724pt x 393.6306pt>
-File: Graph/a.png Graphic file (type png)
-<use Graph/a.png>
-Package pdftex.def Info: Graph/a.png  used on input line 115.
-(pdftex.def)             Requested size: 516.0pt x 277.73184pt.
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 12
-0.
+ (./Table/a.tex
+\gnumericTableWidth=\skip76
+\gnumericTableWidthComplete=\skip77
+\gnumericMultiRowLength=\skip78
+\gnumericColA=\skip79
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 14
+7.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Trying to load font information for U+txmia on input line 1
-20.
+47.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for U+txsya on input line 1
-20.
+47.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for U+txsyb on input line 1
-20.
+47.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for U+txsyc on input line 1
-20.
+47.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
-) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Graph/a.png>] [2] (.
-/main.aux)
+)
+\gnumericColB=\skip80
+)
+<Graph/a.png, id=7, 731.3724pt x 393.6306pt>
+File: Graph/a.png Graphic file (type png)
+<use Graph/a.png>
+Package pdftex.def Info: Graph/a.png  used on input line 119.
+(pdftex.def)             Requested size: 516.0pt x 277.73184pt.
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Graph/a.png>]
+<Graph/b.png, id=26, 578.16pt x 361.35pt>
+File: Graph/b.png Graphic file (type png)
+<use Graph/b.png>
+Package pdftex.def Info: Graph/b.png  used on input line 185.
+(pdftex.def)             Requested size: 516.0pt x 322.51578pt.
+ [2] [3 <./Graph/b.png>]
+(./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 47214 strings out of 476091
- 1096081 string characters out of 5794082
- 1860330 words of memory out of 5000000
- 66856 multiletter control sequences out of 15000+600000
- 573425 words of font info for 156 fonts, out of 8000000 for 9000
+ 47286 strings out of 476091
+ 1097072 string characters out of 5794082
+ 1867330 words of memory out of 5000000
+ 66911 multiletter control sequences out of 15000+600000
+ 583109 words of font info for 185 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 102i,7n,104p,1172b,438s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,11n,104p,1172b,440s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type
@@ -1423,10 +1437,10 @@ t/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type
 onts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (2 pages, 252217 bytes).
+Output written on main.pdf (3 pages, 273776 bytes).
 PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
- 14 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 91 PDF objects out of 1000 (max. 8388607)
+ 67 compressed objects within 1 object stream
+ 25 named destinations out of 1000 (max. 500000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
