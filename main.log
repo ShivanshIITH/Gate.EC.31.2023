@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.8.7)  9 OCT 2023 23:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2023.8.7)  11 OCT 2023 02:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1415,33 +1415,11 @@ Package pdftex.def Info: Graph/a.png  used on input line 119.
 <Graph/b.png, id=27, 578.16pt x 361.35pt>
 File: Graph/b.png Graphic file (type png)
 <use Graph/b.png>
-Package pdftex.def Info: Graph/b.png  used on input line 186.
+Package pdftex.def Info: Graph/b.png  used on input line 170.
 (pdftex.def)             Requested size: 516.0pt x 322.51578pt.
- [2]
-Underfull \hbox (badness 10000) in paragraph at lines 222--223
+ [2] [3 <./Graph/b.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 204--205
 
- []
-
-LaTeX Font Info:    Trying to load font information for OT1+txtt on input line 
-228.
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txtt.fd
-File: ot1txtt.fd 2000/12/15 v3.1
-) [3 <./Graph/b.png>]
-Overfull \hbox (43.49896pt too wide) in paragraph at lines 258--258
- []    \OT1/txtt/m/n/12 quantized_signal = np.round(input_signal / quantization
-_step) * quantization_step[] 
- []
-
-
-Overfull \hbox (18.29901pt too wide) in paragraph at lines 267--267
- []    \OT1/txtt/m/n/12 SNR_simulated = 10 * np.log10(signal_power / signal_pow
-er_quantization_error)[] 
- []
-
-
-Overfull \hbox (30.89899pt too wide) in paragraph at lines 269--269
- []    \OT1/txtt/m/n/12 # Check if the simulated SNR is close to the given SNR 
-with a tolerance of 1 dB[] 
  []
 
 [4] (./main.aux)
@@ -1449,25 +1427,24 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 47324 strings out of 476091
- 1097631 string characters out of 5794082
- 1867330 words of memory out of 5000000
- 66941 multiletter control sequences out of 15000+600000
- 583385 words of font info for 186 fonts, out of 8000000 for 9000
+ 47297 strings out of 476091
+ 1097181 string characters out of 5794082
+ 1872330 words of memory out of 5000000
+ 66911 multiletter control sequences out of 15000+600000
+ 584485 words of font info for 187 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 102i,11n,104p,1172b,591s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,16n,104p,1172b,444s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/txfonts/txex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txf
-onts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txtt.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (4 pages, 283351 bytes).
+onts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (4 pages, 274275 bytes).
 PDF statistics:
- 103 PDF objects out of 1000 (max. 8388607)
- 76 compressed objects within 1 object stream
- 29 named destinations out of 1000 (max. 500000)
+ 104 PDF objects out of 1000 (max. 8388607)
+ 79 compressed objects within 1 object stream
+ 34 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -124,154 +124,83 @@ The signal-to-noise ratio (SNR) of an ADC with a full-scale sinusoidal input is 
 \item Signal Power: \\
 The power of a continuous-time signal is defined as the average value of the square of the signal over a certain time interval. For a sinusoidal signal \(x(t) = A \sin(2\pi f t + \phi)\), the power (\(P_s\)) is calculated as:
 
-\begin{equation}
-P_s = \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} |x(t)|^2 dt
-\end{equation}
+\begin{align}
+P_s &= \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} |x(t)|^2 dt
+\end{align}
 
 where \(\phi\) is the phase of the signal.
+\begin{align}
+P_s &= \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} |A \sin(2\pi f t + \phi)|^2 dt\\
+P_s &= \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} A^2 \sin^2(2\pi f t + \phi) dt\\
+P_s &= \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} A^2 \cdot \frac{1 - \cos(4\pi f t + 2\phi)}{2} dt\\
+P_s &= \frac{1}{2} \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} A^2 dt - \frac{1}{2} \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} A^2 \cos(4\pi f t + 2\phi) dt\\
+P_s &= \frac{1}{2} \cdot A^2 - 0\\
+P_s &= \frac{A^2}{2}\\
+\end{align}
 
-\begin{equation}
-P_s = \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} |A \sin(2\pi f t + \phi)|^2 dt
-\end{equation}
+Here, \($A$ = 1\), so:
 
-\begin{equation}
-P_s = \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} A^2 \sin^2(2\pi f t + \phi) dt
-\end{equation}
-
-\begin{equation}
-P_s = \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} A^2 \cdot \frac{1 - \cos(4\pi f t + 2\phi)}{2} dt
-\end{equation}
-
-\begin{equation}
-P_s = \frac{1}{2} \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} A^2 dt - \frac{1}{2} \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} A^2 \cos(4\pi f t + 2\phi) dt
-\end{equation}
-
-\begin{equation}
-P_s = \frac{1}{2} \cdot A^2 - 0
-\end{equation}
-
-\begin{equation}
-P_s = \frac{A^2}{2}
-\end{equation}
-
-Here, \(A = 1\), so:
-
-\begin{equation}
-P_s = \frac{1}{2}
-\end{equation}
+\begin{align}
+P_s &= \frac{1}{2}
+\end{align}
 \item Noise Power:\\
 Quantized to $2^n$ discrete levels, equivalent to $n$ bits, one quantization step $q$ has a size of
-\begin{equation}
+\begin{align}
 q = \frac{2}{2^{n}} = 2^{-(n-1)}
-\end{equation}
+\end{align}
 
 We know,quantization error has a maximum value of plus or minus half the
 step size, so 
-\begin{equation}
+\begin{align}
 \left| e \right| \leq \frac{q}{2} \text{ and therefore, } \left| e \right| \leq 2^{-n}
-\end{equation}
+\end{align}
 
 For a large enough number of quantization steps, the probability density function of the quantization error tends toward being flat 1.
 Pdf of error (e) of quantization is defined as 
 
-\begin{equation}
-P_e(X) = 
+\begin{align}
+p_r(r=e) = 
 \begin{cases}
-    \frac{1}{q}, & \text{if } -\frac{q}{2} < X < \frac{q}{2} \\
+    \frac{1}{q}, & \text{if } -\frac{q}{2} < e < \frac{q}{2} \\
     0, & \text{otherwise}
 \end{cases}
-\end{equation}
+\end{align}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=1\textwidth]{Graph/b.png}
+  \includegraphics[width=1\columnwidth]{Graph/b.png}
   \caption{plot of pdf of Quantization Error}
   \label{fig:Gate.31.2023.2}
 \end{figure}
 
 So, we can calculate its mean power or variance as the 2nd moment of its distribution.\\
 Since, the distribution of error is uniform hence E[e]=0.
-\begin{equation}
-E[e^{2}] = \int_{-\frac{q}{2}}^{\frac{q}{2}} p(e) e^{2} \, de 
-= \frac{1}{q} \cdot \frac{1}{3} \left(\left(\frac{q}{2}\right)^{3} - \left(-\frac{q}{2}\right)^{3}\right)
-=\frac{1}{3q} \cdot \frac{q^{3}}{4}
-=\frac{q^{2}}{12}
-\end{equation}
+\begin{align}
+E[e^{2}] &= \int_{-\frac{q}{2}}^{\frac{q}{2}} p_r(r=e) e^{2} \, de \\
+&= \frac{1}{q} \cdot \frac{1}{3} \left(\left(\frac{q}{2}\right)^{3} - \left(-\frac{q}{2}\right)^{3}\right)\\
+&=\frac{1}{3q} \cdot \frac{q^{3}}{4}\\
+&=\frac{q^{2}}{12}\\
+\end{align}
 
 On putting \(q = 2^{-(n-1)}\), we have:
-\begin{equation}
-E[e^{2}] \approx \frac{2^{-2n}}{3}
-\end{equation}
-\begin{equation}
-Pe \approx \frac{2^{-2n}}{3}
-\end{equation}
+\begin{align}
+E[e^{2}] &\approx \frac{2^{-2n}}{3}\\
+Pe &\approx \frac{2^{-2n}}{3}\\
+\end{align}
 Thus, an ideal ADC would have a signal-to-noise ratio
-\begin{equation}
+\begin{align}
 SNR = \frac{Ps}{Pe} = 1.5 \cdot 2^{2n}
-\end{equation}
+\end{align}
 
 or, expressed in decibels,
-\begin{equation}
+\begin{align}
 SNR = 1.76 + 6.02n
-\end{equation}
+\end{align}
 
 Plug in the values:
-\begin{equation}
+\begin{align}
 n = \frac{61.96 \text{ dB} - 1.76 \text{ dB}}{6.02 \text{ dB}} \approx 10 \text{ bits}
-\end{equation}
+\end{align}
 
 So, the resolution of the ADC is approximately 10 bits.\\
-
-\begin{enumerate}
-\item Simulation and related steps
-\end{enumerate}
-
-\begin{verbatim}
-import numpy as np
-
-Given_SNR = 61.96 
-# Signal parameters
-amplitude = 1  # Amplitude of the sinusoidal signal
-frequency = 10  # Frequency of the sinusoidal signal in Hz
-sampling_frequency = 1000  # Sampling frequency in Hz
-duration = 1  # Duration of the signal in seconds
-num_samples = int(sampling_frequency * duration)
-time = np.arange(0, duration, 1/sampling_frequency)
-
-# Generating the full-scale sinusoidal input signal
-input_signal = amplitude * np.sin(2 * np.pi * frequency * time)
-
-# Calculate Signal Power (Ps) by averaging the square of the signal
-signal_power = np.mean(input_signal**2)
-
-# Initialize the simulated resolution as None
-resolution_simulated = None
-
-# Iteratating through different quantization bit values
-for n in range(1, 20):
-    # Calculate the number of quantization levels
-    quantization_levels = 2**n
-    
-    # Calculate the quantization step size
-    quantization_step = 2 * amplitude / quantization_levels
-    
-    # Quantize the input signal
-    quantized_signal = np.round(input_signal / quantization_step) * quantization_step
-    
-    # Calculate the quantization error signal
-    quantization_error_signal = input_signal - quantized_signal
-    
-    # Calculate Signal Power (Pe) of quantization error signal
-    signal_power_quantization_error = np.mean(quantization_error_signal**2)
-    
-    # Calculate Signal Power in decibels (dB)
-    SNR_simulated = 10 * np.log10(signal_power / signal_power_quantization_error)
-    
-    # Check if the simulated SNR is close to the given SNR with a tolerance of 1 dB
-    if np.isclose(Given_SNR, SNR_simulated, atol=1):
-        resolution_simulated = n
-        break
-
-print(f"Simulated Resolution: {resolution_simulated} bits")
-\end{verbatim}
 
 \end{document}
