@@ -122,46 +122,48 @@ The signal-to-noise ratio (SNR) of an ADC with a full-scale sinusoidal input is 
 \end{figure}
 \enumerate
 \item Signal Power: \\
-The power of a continuous-time signal is defined as the average value of the square of the signal over a certain time interval. For a sinusoidal signal \(x(t) = A \sin(2\pi f t + \phi)\), the power (\(P_s\)) is calculated as:
+The power of a continuous-time signal is defined as the average value of the square of the signal over a certain time interval. For a sinusoidal signal \(x(t) = A \sin(2\pi f t + \phi)\), the power (\(P_S\)) is calculated as:
 
 \begin{align}
-P_s &= \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} |x(t)|^2 dt
+P_S &= \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} |x(t)|^2 dt
 \end{align}
 
 where \(\phi\) is the phase of the signal.
 \begin{align}
-P_s &= \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} |A \sin(2\pi f t + \phi)|^2 dt\\
-P_s &= \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} A^2 \sin^2(2\pi f t + \phi) dt\\
-P_s &= \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} A^2 \cdot \frac{1 - \cos(4\pi f t + 2\phi)}{2} dt\\
-P_s &= \frac{1}{2} \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} A^2 dt - \frac{1}{2} \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} A^2 \cos(4\pi f t + 2\phi) dt\\
-P_s &= \frac{1}{2} \cdot A^2 - 0\\
-P_s &= \frac{A^2}{2}\\
+P_S &= \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} |A \sin(2\pi f t + \phi)|^2 dt\\
+P_S &= \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} A^2 \sin^2(2\pi f t + \phi) dt\\
+P_S &= \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} A^2 \cdot \frac{1 - \cos(4\pi f t + 2\phi)}{2} dt\\
+P_S &= \frac{1}{2} \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} A^2 dt - \frac{1}{2} \lim_{{T \to \infty}} \frac{1}{T} \int_{{-\frac{T}{2}}}^{{\frac{T}{2}}} A^2 \cos(4\pi f t + 2\phi) dt\\
+P_S &= \frac{1}{2} \cdot A^2 - 0\\
+P_S &= \frac{A^2}{2}\\
 \end{align}
 
 Here, \($A$ = 1\), so:
 
 \begin{align}
-P_s &= \frac{1}{2}
+P_S &= \frac{1}{2}
 \end{align}
 \item Noise Power:\\
-Quantized to $2^n$ discrete levels, equivalent to $n$ bits, one quantization step $q$ has a size of
+\text{No of Quantization levels is given by $2^{n}$, Where n is resolution or no of bits. }\\
+\text{Distance between any two Quantization levels} = Quantization step \\
+(\text{No of Quantization levels})*(\text{Quantization step}) = \text{Peak Distance }   (\text{Refer to Fig 1})\\
 \begin{align}
-q = \frac{2}{2^{n}} = 2^{-(n-1)}
+q = \frac{\text{Peak distance}}{2^{n}} = \frac{1-(-1)}{2^{n}} = \frac{2}{2^{n}} = 2^{-(n-1)}   
 \end{align}
-
+\label{fig:Gate.31.2023.1}
 We know,quantization error has a maximum value of plus or minus half the
 step size, so 
 \begin{align}
-\left| e \right| \leq \frac{q}{2} \text{ and therefore, } \left| e \right| \leq 2^{-n}
+\left| Y \right| \leq \frac{q}{2} \text{ and therefore, } \left| Y \right| \leq 2^{-n}
 \end{align}
 
 For a large enough number of quantization steps, the probability density function of the quantization error tends toward being flat 1.
-Pdf of error (e) of quantization is defined as 
+Pdf of error (Y) of quantization is defined as 
 
 \begin{align}
-p_r(r=e) = 
+p_Y(y)
 \begin{cases}
-    \frac{1}{q}, & \text{if } -\frac{q}{2} < e < \frac{q}{2} \\
+    \frac{1}{q}, & \text{if } -\frac{q}{2} < y < \frac{q}{2} \\
     0, & \text{otherwise}
 \end{cases}
 \end{align}
@@ -173,9 +175,9 @@ p_r(r=e) =
 \end{figure}
 
 So, we can calculate its mean power or variance as the 2nd moment of its distribution.\\
-Since, the distribution of error is uniform hence E[e]=0.
-\begin{align}
-E[e^{2}] &= \int_{-\frac{q}{2}}^{\frac{q}{2}} p_r(r=e) e^{2} \, de \\
+Since, the distribution of error is uniform hence E[Y]=0.
+\begin{align} 
+E[Y^{2}] &= \int_{-\frac{q}{2}}^{\frac{q}{2}} p_Y(y) y^{2} \, de \\
 &= \frac{1}{q} \cdot \frac{1}{3} \left(\left(\frac{q}{2}\right)^{3} - \left(-\frac{q}{2}\right)^{3}\right)\\
 &=\frac{1}{3q} \cdot \frac{q^{3}}{4}\\
 &=\frac{q^{2}}{12}\\
@@ -183,12 +185,13 @@ E[e^{2}] &= \int_{-\frac{q}{2}}^{\frac{q}{2}} p_r(r=e) e^{2} \, de \\
 
 On putting \(q = 2^{-(n-1)}\), we have:
 \begin{align}
-E[e^{2}] &\approx \frac{2^{-2n}}{3}\\
-Pe &\approx \frac{2^{-2n}}{3}\\
+E[Y^{2}] &\approx \frac{2^{-2n}}{3}\\
+P_Y &\approx \frac{2^{-2n}}{3}\\
+P_N &\approx \frac{2^{-2n}}{3}\\
 \end{align}
 Thus, an ideal ADC would have a signal-to-noise ratio
 \begin{align}
-SNR = \frac{Ps}{Pe} = 1.5 \cdot 2^{2n}
+SNR = \frac{P_S}{P_N} = 1.5 \cdot 2^{2n}
 \end{align}
 
 or, expressed in decibels,
