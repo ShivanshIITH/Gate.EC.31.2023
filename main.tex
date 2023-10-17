@@ -163,7 +163,7 @@ Pdf of error (Y) of quantization is defined as
 \begin{align}
 p_Y(y) = 
 \begin{cases}
-    \frac{1}{q}, & \text{if } -\frac{q}{2} < y < \frac{q}{2} \\
+    \frac{1}{q}, & \text{if } -\frac{q}{2} \leq y \leq \frac{q}{2} \\
     0, & \text{otherwise}
 \end{cases}
 \end{align}
@@ -177,7 +177,7 @@ p_Y(y) =
 So, we can calculate its mean power or variance as the 2nd moment of its distribution.\\
 Since, the distribution of error is uniform hence E[Y]=0.\\
 \begin{align}
-E\brak{Y}=\int_{-\frac{q}{2}}^{\frac{q}{2}} p_Y(y) y \, de \\
+E\brak{Y} &= \int_{-\frac{q}{2}}^{\frac{q}{2}} p_Y(y) y \, de \\
 &= \frac{1}{q} \cdot \frac{1}{2} \left(\left(\frac{q}{2}\right)^{2} - \left(-\frac{q}{2}\right)^{2}\right) \ref{eq:gate:1} \\
 &= \frac{1}{q} \cdot \frac{1}{2} \left(0 - 0\right)\\
 &= 0
@@ -202,7 +202,9 @@ SNR = \frac{P_S}{P_N} = 1.5 \cdot 2^{2n}
 
 or, expressed in decibels,
 \begin{align}
-SNR = 1.76 + 6.02n
+SNR &= 10 \left(\log_{10}(1.5) + \log_{10}(2^{2n})\right)\\
+SNR &= 10 \left(0.176 + 2n \cdot 0.3010\right)\\
+SNR &= 1.76 + 6.02n
 \end{align}
 
 Plug in the values:
