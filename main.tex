@@ -148,7 +148,7 @@ P_S &= \frac{1}{2}
 \text{Distance between any two Quantization levels} = Quantization step \\
 (\text{No of Quantization levels})*(\text{Quantization step}) = \text{Peak Distance }   (\text{Refer to Fig 1})\\
 \begin{align}
-q = \frac{\text{Peak distance}}{2^{n}} = \frac{1-(-1)}{2^{n}} = \frac{2}{2^{n}} = 2^{-(n-1)}   
+q = \frac{\text{Peak distance}}{2^{n}} = \frac{1-(-1)}{2^{n}} = \frac{2}{2^{n}} = 2^{-(n-1)} \label{eq:gate:1}
 \end{align}
 \label{fig:Gate.31.2023.1}
 We know,quantization error has a maximum value of plus or minus half the
@@ -161,7 +161,7 @@ For a large enough number of quantization steps, the probability density functio
 Pdf of error (Y) of quantization is defined as 
 
 \begin{align}
-p_Y(y)
+p_Y(y) = 
 \begin{cases}
     \frac{1}{q}, & \text{if } -\frac{q}{2} < y < \frac{q}{2} \\
     0, & \text{otherwise}
@@ -169,23 +169,29 @@ p_Y(y)
 \end{align}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=1\columnwidth]{Graph/b.png}
+  \includegraphics[width=0.7\columnwidth]{Graph/b.png}
   \caption{plot of pdf of Quantization Error}
   \label{fig:Gate.31.2023.2}
 \end{figure}
 
 So, we can calculate its mean power or variance as the 2nd moment of its distribution.\\
-Since, the distribution of error is uniform hence E[Y]=0.
+Since, the distribution of error is uniform hence E[Y]=0.\\
+\begin{align}
+E\brak{Y}=\int_{-\frac{q}{2}}^{\frac{q}{2}} p_Y(y) y \, de \\
+&= \frac{1}{q} \cdot \frac{1}{2} \left(\left(\frac{q}{2}\right)^{2} - \left(-\frac{q}{2}\right)^{2}\right) \ref{eq:gate:1} \\
+&= \frac{1}{q} \cdot \frac{1}{2} \left(0 - 0\right)\\
+&= 0
+\end{align}
 \begin{align} 
 E[Y^{2}] &= \int_{-\frac{q}{2}}^{\frac{q}{2}} p_Y(y) y^{2} \, de \\
-&= \frac{1}{q} \cdot \frac{1}{3} \left(\left(\frac{q}{2}\right)^{3} - \left(-\frac{q}{2}\right)^{3}\right)\\
+&= \frac{1}{q} \cdot \frac{1}{3} \left(\left(\frac{q}{2}\right)^{3} - \left(-\frac{q}{2}\right)^{3}\right)  \ref{eq:gate:1} \\
 &=\frac{1}{3q} \cdot \frac{q^{3}}{4}\\
 &=\frac{q^{2}}{12}\\
 \end{align}
 
 On putting \(q = 2^{-(n-1)}\), we have:
 \begin{align}
-E[Y^{2}] &\approx \frac{2^{-2n}}{3}\\
+E[Y^{2}] &\approx \frac{2^{-2n}}{3} \ref{eq:gate:1} \\
 P_Y &\approx \frac{2^{-2n}}{3}\\
 P_N &\approx \frac{2^{-2n}}{3}\\
 \end{align}
