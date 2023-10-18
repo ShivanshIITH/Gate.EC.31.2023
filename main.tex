@@ -1,4 +1,5 @@
-\documentclass[journal,12pt,onecolumn]{IEEEtran}
+ 
+ \documentclass[journal,12pt,onecolumn]{IEEEtran}
 \usepackage{setspace}
 \usepackage{gensymb}
 \singlespacing
@@ -222,6 +223,7 @@ Simulation Steps :- \\
 \begin{enumerate}
 \item Initialize the simulation parameters, including the given SNR in dB (which is 61.96 dB) and signal power ($P_s$) (which is 0.5), and create an array of quantization error values ($q$-values) to test.\\
 \item Generate random variables uniformly distributed over $-\frac{q}{2}$ to $\frac{q}{2}$. For each quantization error value, calculate mean error, variance error, and average power (which is equivalent to noise power), and then use these values to calculate the SNR. \\
+\item The number of bits required for quantization is calculated as $1 - \log_2(q)$.\\
 \item Compare the calculated SNR to the target SNR\_dB, and when it's within a specified tolerance, print the corresponding number of bits required for quantization.\\
 \item The program breaks the loop and exits after finding the number of bits that achieves the target SNR\_dB.
 \end{enumerate}
